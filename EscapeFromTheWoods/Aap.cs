@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EscapeFromTheWoods
@@ -22,6 +23,7 @@ namespace EscapeFromTheWoods
         {
             bezochteBomen.Add(dichtsteBoom);
             dichtsteBoom.apenInBoom.Remove(this);
+            Console.WriteLine($"aap : {naam} is van {bezochteBomen.Last().xCoordinaat} , {bezochteBomen.Last().yCoordinaat} naar {dichtsteBoom.xCoordinaat}, {dichtsteBoom.yCoordinaat} Gesprongen");
         }
 
         public override bool Equals(object obj)

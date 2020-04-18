@@ -8,7 +8,7 @@ namespace EscapeFromTheWoods
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Bos bos = new Bos(new List<int>() { 5, 5 }, 5, 10,10);
+            Bos bos = new Bos(new List<int>() { 5, 5 }, 5, 3,2);
             bos.Start();
         }
     }

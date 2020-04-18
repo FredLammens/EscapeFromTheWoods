@@ -88,11 +88,10 @@ namespace EscapeFromTheWoods
         public void Start()
         {
             Console.WriteLine("gestart");
-            while (apen.Count > 0) //zolang er apen in het bos zijn
+            while (apen.Count != 0) 
             {
-                foreach (Aap aap in apen)
+                foreach (Aap aap in apen.ToList())
                 {
-                    Console.WriteLine("start zoeken naar dichtste boom");
                     Tuple<double, Boom> result = ZoekDichtsteBoom(aap);
                     double dichtsteLengte = result.Item1;
                     Boom dichtsteBoom = result.Item2;
