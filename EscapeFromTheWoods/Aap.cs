@@ -18,7 +18,11 @@ namespace EscapeFromTheWoods
             this.id = id;
             this.naam = naam;
         }
-        public void Spring(Boom dichtsteBoom) { }
+        public void Spring(Boom dichtsteBoom) 
+        {
+            bezochteBomen.Add(dichtsteBoom);
+            dichtsteBoom.apenInBoom.Remove(this);
+        }
 
         public override bool Equals(object obj)
         {
