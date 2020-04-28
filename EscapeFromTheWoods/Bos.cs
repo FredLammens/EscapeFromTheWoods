@@ -40,12 +40,20 @@ namespace EscapeFromTheWoods
             }
             //Initialiseer random bomen 
             Random r = new Random();
-            for (int i = 1; i < aantalBomen; i++)
+            for (int i = 0; i < aantalBomen; i++)
             {
                 int xCoordinaat = r.Next(xMinWaarde, xMaxWaarde);
                 int yCoordinaat = r.Next(yMinWaarde, yMaxWaarde);
                 Boom randomBoom = new Boom(xCoordinaat, yCoordinaat, i);
-                bomen.Add(randomBoom);
+                if (!bomen.Contains(randomBoom))
+                {
+                    bomen.Add(randomBoom);
+                }
+                else
+                {
+                    i--;
+                }
+                
             }
 
         }
@@ -58,11 +66,13 @@ namespace EscapeFromTheWoods
         /// <param name="aantalApen">generate aantal apen</param>
         public Bos(List<int> begrenzing, int id , int aantalBomen, int aantalApen) : this(begrenzing, id,aantalBomen)
         {
-            if (aantalApen <= bomen.Count + 1)
+            if (aantalApen <= bomen.Count)
             {
-                for (int i = 0; i < bomen.Count; i++)
+                for (int i = 0; i < aantalApen; i++)
                 {
-                    InitialiseerAap(new Aap(bomen[i], i, Aapnamen.GetRandomNaam()));
+                    //InitialiseerAap(new Aap(bomen[i], i, Aapnamen.GetRandomNaam()));
+                    Aapnamen.AapNamenEnum naam = (Aapnamen.AapNamenEnum)i;
+                    InitialiseerAap(new Aap(bomen[i], i,naam.ToString()));
                 }
             }
             else
@@ -110,27 +120,11 @@ namespace EscapeFromTheWoods
 
         private void InitialiseerAap(Aap aap)
         {
-            //check of aap wel in een boom van het bos zit
-            if (bomen.Contains(aap.bezochteBomen[0]))
-            {
-                //indien in de boom waar de aap in wilt zitten geen apen zit
-                if (aap.bezochteBomen[0].apenInBoom.Count == 0)
-                {
                     //voeg aap toe aan lijst van apen
                     apen.Add(aap);
                     //update lijst van bomen met boom met aap in 
                     int teUpdatenBoom = bomen.IndexOf(aap.bezochteBomen[0]);
                     bomen[teUpdatenBoom].apenInBoom.Add(aap);
-                }
-                else
-                {
-                    Console.WriteLine("Er zit al een aap in de boom");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Aap zit niet in een boom in dit bos.");
-            }
         }
         private void InitialiseerApen(List<Aap> apen)
         {
@@ -151,16 +145,6 @@ namespace EscapeFromTheWoods
                 Console.WriteLine($"Aap {aap} niet gevonden in lijst van apen");
                 return;
             }
-            foreach (Boom boom in bomen)
-            {
-                if (boom.apenInBoom.Contains(aap))
-                {
-                    boom.apenInBoom.Remove(aap);
-                    Console.WriteLine($"aap : {aap} verwijdert uit boom {boom}");
-                    return;
-                }
-            }
-            Console.WriteLine($"aap is niet gevonden in een boom");
         }
         private Tuple<double, Boom> ZoekDichtsteBoom(Aap aap)
         {
@@ -169,13 +153,16 @@ namespace EscapeFromTheWoods
             Boom dichtsteBoom = null;
             foreach (Boom boom in bomen)
             {
-                if (boom != huidigeBoom)
+                if (!aap.bezochteBomen.Contains(boom))
                 {
-                    double lengte = LengteTussenBomen(boom, huidigeBoom);
-                    if (lengte < dichtste)
+                        double lengte = LengteTussenBomen(boom, huidigeBoom);
+                    if (lengte != 0) 
                     {
-                        dichtste = lengte;
-                        dichtsteBoom = boom;
+                        if (lengte < dichtste)
+                        {
+                            dichtste = lengte;
+                            dichtsteBoom = boom;
+                        }
                     }
                 }
             }
@@ -186,19 +173,16 @@ namespace EscapeFromTheWoods
             int verschilXWaarden = boom1.xCoordinaat - boom2.xCoordinaat;
             int verschilYWaarden = boom1.yCoordinaat - boom2.yCoordinaat;
             double lengte = Math.Sqrt(Math.Pow(verschilXWaarden, 2) + Math.Pow(verschilYWaarden, 2));
-            return lengte;
+            return Math.Abs(lengte);
         }
-        private int LengteTussenAapEnRand(Aap aap)
+        private double LengteTussenAapEnRand(Aap aap)
         {
-            Boom huidigeBoom = aap.bezochteBomen.Last();
-            if (huidigeBoom.xCoordinaat > huidigeBoom.yCoordinaat) //punt dichter bij y-as => aspunt => x = 0 en y = hetzelfde
-            {
-                return huidigeBoom.xCoordinaat;
-            }
-            else
-            {
-                return huidigeBoom.yCoordinaat;
-            }
+            Boom currentboom = aap.bezochteBomen.Last();
+            double lengte = (new List<double>() { yMaxWaarde - currentboom.yCoordinaat,
+                                                  xMaxWaarde - currentboom.xCoordinaat,
+                                                  currentboom.yCoordinaat - yMinWaarde,
+                                                  currentboom.xCoordinaat - xMinWaarde }).Min();
+            return lengte;
         }
 
         public override bool Equals(object obj)

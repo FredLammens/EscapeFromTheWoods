@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace EscapeFromTheWoods
 {
@@ -19,11 +20,11 @@ namespace EscapeFromTheWoods
             this.id = id;
             this.naam = naam;
         }
-        public void Spring(Boom dichtsteBoom) 
+        public void Spring(Boom dichtsteBoom)
         {
-            bezochteBomen.Add(dichtsteBoom);
-            dichtsteBoom.apenInBoom.Remove(this);
-            Console.WriteLine($"aap : {naam} is van {bezochteBomen.Last().xCoordinaat} , {bezochteBomen.Last().yCoordinaat} naar {dichtsteBoom.xCoordinaat}, {dichtsteBoom.yCoordinaat} Gesprongen");
+                Console.WriteLine($"aap : {naam} is van {bezochteBomen.Last().xCoordinaat} , {bezochteBomen.Last().yCoordinaat} naar {dichtsteBoom.xCoordinaat}, {dichtsteBoom.yCoordinaat} Gesprongen");
+                bezochteBomen.Add(dichtsteBoom);
+                dichtsteBoom.apenInBoom.Remove(this);
         }
 
         public override bool Equals(object obj)
@@ -40,7 +41,7 @@ namespace EscapeFromTheWoods
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"naam: {naam} id: {id}";
         }
     }
 }
