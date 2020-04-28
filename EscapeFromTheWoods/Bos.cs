@@ -13,6 +13,7 @@ namespace EscapeFromTheWoods
         private int yMaxWaarde;
         private int yMinWaarde = 0;
         private int id;
+        public Log log { get; private set; }
         public List<Aap> apen { get; private set; }
         public List<Boom> bomen { get; private set; }
         /// <summary>
@@ -23,6 +24,7 @@ namespace EscapeFromTheWoods
         /// <param name="aantalBomen">generate aantal bomen</param>
         public Bos(List<int> begrenzing, int id, int aantalBomen)
         {
+            log = new Log();
             this.id = id;
             bomen = new List<Boom>();
             apen = new List<Aap>();
@@ -139,13 +141,13 @@ namespace EscapeFromTheWoods
         {
             if (apen.Contains(aap))
             {
+                log.AddAap(aap);
                 apen.Remove(aap);
                 Console.WriteLine($"Aap {aap} verwijdert uit lijst van apen.");
             }
             else
             {
                 Console.WriteLine($"Aap {aap} niet gevonden in lijst van apen");
-                return;
             }
         }
         private Tuple<double, Boom> ZoekDichtsteBoom(Aap aap)
