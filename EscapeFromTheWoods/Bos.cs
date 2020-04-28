@@ -102,19 +102,24 @@ namespace EscapeFromTheWoods
             {
                 foreach (Aap aap in apen.ToList())
                 {
-                    Tuple<double, Boom> result = ZoekDichtsteBoom(aap);
-                    double dichtsteLengte = result.Item1;
-                    Boom dichtsteBoom = result.Item2;
-                    double lengteRand = LengteTussenAapEnRand(aap);
-                    if (dichtsteLengte < lengteRand)
-                    {
-                        aap.Spring(dichtsteBoom);
-                    }
-                    else
-                    {
-                        VerwijderAap(aap);
-                    }
+                    SpringAap(aap);
                 }
+            }
+        }
+        public void SpringAap(Aap aap) 
+        {
+            Tuple<double, Boom> result = ZoekDichtsteBoom(aap);
+            double dichtsteLengte = result.Item1;
+            Boom dichtsteBoom = result.Item2;
+            double lengteRand = LengteTussenAapEnRand(aap);
+            if (dichtsteLengte < lengteRand)
+            {
+                aap.Spring(dichtsteBoom);
+                SpringAap(aap);
+            }
+            else
+            {
+                VerwijderAap(aap);
             }
         }
 
