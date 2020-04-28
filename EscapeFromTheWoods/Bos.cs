@@ -53,7 +53,7 @@ namespace EscapeFromTheWoods
                 {
                     i--;
                 }
-                
+
             }
 
         }
@@ -64,7 +64,7 @@ namespace EscapeFromTheWoods
         /// <param name="begrenzing">xmin,xmax,ymin,ymax</param>
         /// <param name="aantalBomen">generate aantal bomen</param>
         /// <param name="aantalApen">generate aantal apen</param>
-        public Bos(List<int> begrenzing, int id , int aantalBomen, int aantalApen) : this(begrenzing, id,aantalBomen)
+        public Bos(List<int> begrenzing, int id, int aantalBomen, int aantalApen) : this(begrenzing, id, aantalBomen)
         {
             if (aantalApen <= bomen.Count)
             {
@@ -72,7 +72,7 @@ namespace EscapeFromTheWoods
                 {
                     //InitialiseerAap(new Aap(bomen[i], i, Aapnamen.GetRandomNaam()));
                     Aapnamen.AapNamenEnum naam = (Aapnamen.AapNamenEnum)i;
-                    InitialiseerAap(new Aap(bomen[i], i,naam.ToString()));
+                    InitialiseerAap(new Aap(bomen[i], i, naam.ToString()));
                 }
             }
             else
@@ -88,7 +88,7 @@ namespace EscapeFromTheWoods
         /// <param name="begrenzing">xmin,xmax,ymin,ymax</param>
         /// <param name="aantalBomen">generate aantal bomen</param>
         /// <param name="apen">eigen lijst van apen</param>
-        public Bos(List<int> begrenzing, int id ,int aantalBomen, List<Aap> apen) : this(begrenzing,id,aantalBomen)
+        public Bos(List<int> begrenzing, int id, int aantalBomen, List<Aap> apen) : this(begrenzing, id, aantalBomen)
         {
             InitialiseerApen(apen);
         }
@@ -98,15 +98,12 @@ namespace EscapeFromTheWoods
         public void Start()
         {
             Console.WriteLine("gestart");
-            while (apen.Count != 0) 
+            for (int i = apen.Count - 1; i != -1; i--)
             {
-                foreach (Aap aap in apen.ToList())
-                {
-                    SpringAap(aap);
-                }
+                SpringAap(apen[i]);
             }
         }
-        public void SpringAap(Aap aap) 
+        public void SpringAap(Aap aap)
         {
             Tuple<double, Boom> result = ZoekDichtsteBoom(aap);
             double dichtsteLengte = result.Item1;
@@ -125,11 +122,11 @@ namespace EscapeFromTheWoods
 
         private void InitialiseerAap(Aap aap)
         {
-                    //voeg aap toe aan lijst van apen
-                    apen.Add(aap);
-                    //update lijst van bomen met boom met aap in 
-                    int teUpdatenBoom = bomen.IndexOf(aap.bezochteBomen[0]);
-                    bomen[teUpdatenBoom].apenInBoom.Add(aap);
+            //voeg aap toe aan lijst van apen
+            apen.Add(aap);
+            //update lijst van bomen met boom met aap in 
+            int teUpdatenBoom = bomen.IndexOf(aap.bezochteBomen[0]);
+            bomen[teUpdatenBoom].apenInBoom.Add(aap);
         }
         private void InitialiseerApen(List<Aap> apen)
         {
@@ -160,8 +157,8 @@ namespace EscapeFromTheWoods
             {
                 if (!aap.bezochteBomen.Contains(boom))
                 {
-                        double lengte = LengteTussenBomen(boom, huidigeBoom);
-                    if (lengte != 0) 
+                    double lengte = LengteTussenBomen(boom, huidigeBoom);
+                    if (lengte != 0)
                     {
                         if (lengte < dichtste)
                         {
