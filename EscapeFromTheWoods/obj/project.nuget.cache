@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "2ejAnyjGT3PuHCvkLRv2I/9HUzc+Mh0MuRQlD6nC4jtpoJlhqC803jg32eFvhwsxkmulUK1erWOpsIXBAi5mnA==",
+  "dgSpecHash": "uxR3227aCejJyOW6iBT2R3bg6YHB2GiwpxYXImzqB3hxcAg6ek8zfRY2BHO2sPb4j7su/vKS6UktkBcdaAhkgA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Biebem\\Google Drive\\School\\hbO5\\Semester2\\hbo5_Programmeren4\\2.Asynchroon programmeren\\EscapeFromTheWoods\\EscapeFromTheWoods\\EscapeFromTheWoods.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Biebem\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Biebem\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Biebem\\.nuget\\packages\\syroot.windows.io.knownfolders\\1.2.3\\syroot.windows.io.knownfolders.1.2.3.nupkg.sha512",
+    "C:\\Users\\Biebem\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\Biebem\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

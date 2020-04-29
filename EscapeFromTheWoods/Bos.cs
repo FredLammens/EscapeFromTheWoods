@@ -8,11 +8,11 @@ namespace EscapeFromTheWoods
 {
     class Bos
     {
-        private int xMaxWaarde;
-        private int xMinWaarde = 0;
-        private int yMaxWaarde;
-        private int yMinWaarde = 0;
-        private int id;
+        public int xMaxWaarde { get; private set; }
+        public int xMinWaarde { get; private set; } = 0;
+        public int yMaxWaarde { get; private set; }
+        public int yMinWaarde { get; private set; } = 0;
+        public int id { get; private set; }
         public Log log { get; private set; }
         public List<Aap> apen { get; private set; }
         public List<Boom> bomen { get; private set; }

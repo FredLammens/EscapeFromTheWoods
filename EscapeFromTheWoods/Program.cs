@@ -11,6 +11,8 @@ namespace EscapeFromTheWoods
             bos.Start();
             Console.Clear();
             bos.log.PrintLog();
+            BitmapMaker bm = new BitmapMaker(bos);
+            bm.maakBitmap(@"C:\Users\Biebem\Downloads");
         }
     }
 }
