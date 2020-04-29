@@ -43,10 +43,10 @@ namespace EscapeFromTheWoods
                     pen.Color = kleurke;
                     Boom currentBoom = aap.bezochteBomen[i];
                     Boom nextBoom = aap.bezochteBomen[i + 1];
-                    g.DrawLine(pen, currentBoom.xCoordinaat, currentBoom.yCoordinaat, nextBoom.xCoordinaat, nextBoom.yCoordinaat);
+                    g.DrawLine(pen, currentBoom.xCoordinaat * 20 + 10, currentBoom.yCoordinaat * 20 + 10, nextBoom.xCoordinaat * 20 + 10, nextBoom.yCoordinaat * 20 + 10);
                 }
                 Boom eersteBoom = aap.bezochteBomen[0];
-                g.FillEllipse(new SolidBrush(kleurke), eersteBoom.xCoordinaat, eersteBoom.yCoordinaat, 17, 17);
+                g.FillEllipse(new SolidBrush(kleurke), eersteBoom.xCoordinaat * 20, eersteBoom.yCoordinaat * 20, 17, 17);
             }
         }
     }
