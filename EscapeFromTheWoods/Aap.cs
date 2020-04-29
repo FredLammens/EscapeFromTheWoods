@@ -8,8 +8,8 @@ namespace EscapeFromTheWoods
 {
     class Aap
     {
-        private int id;
-        private string naam;
+        public int id { get; private set; }
+        public string naam { get; private set; }
         public List<Boom> bezochteBomen { get; private set; }
         public Aap(Boom startBoom, int id, string naam)
         {

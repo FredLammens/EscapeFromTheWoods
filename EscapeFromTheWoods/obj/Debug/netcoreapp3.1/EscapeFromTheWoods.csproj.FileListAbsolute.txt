@@ -17,4 +17,3 @@ C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchro
 C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\obj\Debug\netcoreapp3.1\EscapeFromTheWoods.csproj.CopyComplete
 C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\Syroot.KnownFolders.dll
-C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\obj\Debug\netcoreapp3.1\EscapeFromTheWoods.csproj.CoreCompileInputs.cache

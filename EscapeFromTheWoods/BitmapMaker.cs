@@ -23,7 +23,7 @@ namespace EscapeFromTheWoods
                 bm.Save(Path.Combine(path, bos.id + "_escapeRoutes.png"), ImageFormat.Png);
             }
         }
-        public void Draw(Bitmap bm)
+        private void Draw(Bitmap bm)
         {
             Graphics g = Graphics.FromImage(bm);
             //bomen

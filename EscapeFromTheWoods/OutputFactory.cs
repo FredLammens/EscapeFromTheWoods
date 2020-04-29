@@ -7,10 +7,24 @@ namespace EscapeFromTheWoods
 {
     class OutputFactory
     {
-        public OutputFactory()
+        public OutputFactory(Bos bos,string output)
         {
-        KnownFolder downloads = new KnownFolder(KnownFolderType.Downloads);
-        //downloads.Path
+            KnownFolder documents = new KnownFolder(KnownFolderType.Documents);
+
+            switch (output.ToLower().Trim())
+            {
+                case "databank":
+                    break;
+                case "bitmap":
+                    BitmapMaker bmm = new BitmapMaker(bos);
+                    bmm.maakBitmap(documents.Path);
+                    break;
+                case "tekstbestand":
+                    break;
+                default:
+                    Console.WriteLine("geen correcte output ingegeven.");
+                    break;
+            }
         }
     }
 }

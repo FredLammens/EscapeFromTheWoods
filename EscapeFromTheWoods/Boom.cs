@@ -8,7 +8,7 @@ namespace EscapeFromTheWoods
     {
         public int xCoordinaat { get; private set; }
         public int yCoordinaat { get; private set; }
-        private int id;
+        public int id { get; private set; }
         public List<Aap> apenInBoom { get; private set; }
         public Boom(int xCoordinaat,int yCoordinaat, int id)
         {

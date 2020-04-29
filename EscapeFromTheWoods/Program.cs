@@ -9,10 +9,10 @@ namespace EscapeFromTheWoods
         {
             Bos bos = new Bos(new List<int>() { 10, 10 }, 5, 20,5);
             bos.Start();
-            Console.Clear();
-            bos.log.PrintLog();
-            BitmapMaker bm = new BitmapMaker(bos);
-            bm.maakBitmap(@"C:\Users\Biebem\Downloads");
+            //Console.Clear();
+            //bos.log.PrintLog();
+            //BitmapMaker bm = new BitmapMaker(bos);
+            //bm.maakBitmap(@"C:\Users\Biebem\Downloads");
         }
     }
 }

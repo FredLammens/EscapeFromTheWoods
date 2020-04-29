@@ -22,5 +22,15 @@ namespace EscapeFromTheWoods
                 Console.WriteLine(aap);
             }
         }
+        public string GeefMessage(Aap aap) 
+        {
+            StringBuilder message = new StringBuilder();
+            string naam = aap.naam;
+            foreach (Boom bezochteBoom in aap.bezochteBomen)
+            {
+                message.Append($"{naam} is now in tree {bezochteBoom.id} at location ({bezochteBoom.xCoordinaat},{bezochteBoom.yCoordinaat})\n");
+            }
+            return message.ToString();
+        }
     }
 }

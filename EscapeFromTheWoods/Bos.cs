@@ -72,9 +72,9 @@ namespace EscapeFromTheWoods
             {
                 for (int i = 0; i < aantalApen; i++)
                 {
-                    //InitialiseerAap(new Aap(bomen[i], i, Aapnamen.GetRandomNaam()));
-                    Aapnamen.AapNamenEnum naam = (Aapnamen.AapNamenEnum)i;
-                    InitialiseerAap(new Aap(bomen[i], i, naam.ToString()));
+                    InitialiseerAap(new Aap(bomen[i], i, Aapnamen.GetRandomNaam()));
+                    //Aapnamen.AapNamenEnum naam = (Aapnamen.AapNamenEnum)i;
+                    //InitialiseerAap(new Aap(bomen[i], i, naam.ToString()));
                 }
             }
             else
