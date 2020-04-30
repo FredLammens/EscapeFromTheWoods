@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.IsolatedStorage;
+using System.Linq;
 using System.Text;
 
 namespace EscapeFromTheWoods
@@ -7,26 +9,20 @@ namespace EscapeFromTheWoods
     class Log
     {
         public List<Aap> ontsnapteApen { get; private set; }
+        public List<String> sprongenLogs { get; private set; }
         public Log()
         {
             ontsnapteApen = new List<Aap>();
+            sprongenLogs = new List<string>();
         }
         public void AddAap(Aap aap)
         {
             ontsnapteApen.Add(aap);
         }
-        public void PrintLog()
+        public void AddLog(Aap aap) 
         {
-            foreach (Aap aap in ontsnapteApen)
-            {
-                StringBuilder message = new StringBuilder();
-                string naam = aap.naam;
-                foreach (Boom bezochteBoom in aap.bezochteBomen)
-                {
-                    message.Append($"{naam} is now in tree {bezochteBoom.id} at location ({bezochteBoom.xCoordinaat},{bezochteBoom.yCoordinaat})\n");
-                }
-                Console.WriteLine(message.ToString());
-            }
+            Boom currentBoom = aap.bezochteBomen.Last();
+            sprongenLogs.Add($"{aap.naam} is in tree {currentBoom.id} at ({currentBoom.xCoordinaat},{currentBoom.yCoordinaat})");
         }
     }
 }

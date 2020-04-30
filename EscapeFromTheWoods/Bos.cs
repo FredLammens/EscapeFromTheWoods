@@ -113,6 +113,7 @@ namespace EscapeFromTheWoods
             double lengteRand = LengteTussenAapEnRand(aap);
             if (dichtsteLengte < lengteRand)
             {
+                log.AddLog(aap);
                 aap.Spring(dichtsteBoom);
                 SpringAap(aap);
             }

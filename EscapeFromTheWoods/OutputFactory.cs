@@ -9,7 +9,7 @@ namespace EscapeFromTheWoods
     {
         public OutputFactory(Bos bos,string output)
         {
-            KnownFolder documents = new KnownFolder(KnownFolderType.Documents);
+            KnownFolder downloads = new KnownFolder(KnownFolderType.Downloads);
 
             switch (output.ToLower().Trim())
             {
@@ -19,9 +19,13 @@ namespace EscapeFromTheWoods
                     break;
                 case "bitmap":
                     BitmapMaker bmm = new BitmapMaker(bos);
-                    bmm.maakBitmap(documents.Path);
+                    bmm.maakBitmap(downloads.Path);
                     break;
                 case "tekstbestand":
+                    TekstBestand.MaakTekstBestand(bos, downloads.Path);
+                    break;
+                case "xml":
+                    Databank.MakeXMlFile(downloads.Path, bos);
                     break;
                 default:
                     Console.WriteLine("geen correcte output ingegeven.");

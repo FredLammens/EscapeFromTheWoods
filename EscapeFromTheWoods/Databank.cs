@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.IO.IsolatedStorage;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,7 @@ namespace EscapeFromTheWoods
                 }
             }
         }
-        private DataSet GetDataTables(Bos bos)
+        private static DataSet GetDataTables(Bos bos)
         {
             Console.WriteLine("getting info");
             //WoodRecords
@@ -103,5 +104,15 @@ namespace EscapeFromTheWoods
             set.Tables.Add(logs);
             return set;
         }
+        #region testXml
+        public static void MakeXMlFile(string path,Bos bos) 
+        {
+            string xml = GetDataTables(bos).GetXml();
+            using (StreamWriter sw = new StreamWriter(Path.Combine(path, "EscapeFromTheWoods.xml")))
+            {
+                sw.Write(xml);
+            }
+        }
+        #endregion
     }
 }
