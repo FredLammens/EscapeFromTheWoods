@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EscapeFromTheWoods
@@ -107,13 +108,15 @@ namespace EscapeFromTheWoods
         }
         public void SpringAap(Aap aap)
         {
-            Tuple<double, Boom> result = ZoekDichtsteBoom(aap);
+            Tuple<double, Boom> result = null;
+            double lengteRand = 0;
+            Task zoekBoom = Task.Run(() => { result = ZoekDichtsteBoom(aap); });
+            Task lengte = Task.Run(() => { lengteRand = LengteTussenAapEnRand(aap);});
+            Task.WaitAll(zoekBoom, lengte);
             double dichtsteLengte = result.Item1;
             Boom dichtsteBoom = result.Item2;
-            double lengteRand = LengteTussenAapEnRand(aap);
             if (dichtsteLengte < lengteRand)
             {
-                log.AddLog(aap);
                 aap.Spring(dichtsteBoom);
                 SpringAap(aap);
             }
@@ -151,7 +154,7 @@ namespace EscapeFromTheWoods
                 Console.WriteLine($"Aap {aap} niet gevonden in lijst van apen");
             }
         }
-        private Tuple<double, Boom> ZoekDichtsteBoom(Aap aap)
+        private Tuple<double,Boom> ZoekDichtsteBoom(Aap aap)
         {
             Boom huidigeBoom = aap.bezochteBomen.Last();
             double dichtste = double.MaxValue;

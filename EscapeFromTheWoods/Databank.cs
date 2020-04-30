@@ -24,7 +24,7 @@ namespace EscapeFromTheWoods
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
         }
-        public void InsertAll(Bos bos)
+        public async Task InsertAll(Bos bos)
         {
             DataSet set = GetDataTables(bos);
             DataTableCollection collection = set.Tables;
@@ -38,7 +38,7 @@ namespace EscapeFromTheWoods
                         DataTable table = collection[i];
                         sqlBulk.BulkCopyTimeout = 0;
                         sqlBulk.DestinationTableName = table.TableName;
-                        Task.Run(async () => { await sqlBulk.WriteToServerAsync(table); }).Wait();
+                        await Task.Run(async () => { await sqlBulk.WriteToServerAsync(table); });
                         Console.WriteLine($"{table.TableName} is in database toegevoegd");
                     }
                 }

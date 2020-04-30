@@ -9,20 +9,31 @@ namespace EscapeFromTheWoods
     class Log
     {
         public List<Aap> ontsnapteApen { get; private set; }
-        public List<String> sprongenLogs { get; private set; }
         public Log()
         {
             ontsnapteApen = new List<Aap>();
-            sprongenLogs = new List<string>();
         }
         public void AddAap(Aap aap)
         {
             ontsnapteApen.Add(aap);
         }
-        public void AddLog(Aap aap) 
+        public string getSprongenLog()
         {
-            Boom currentBoom = aap.bezochteBomen.Last();
-            sprongenLogs.Add($"{aap.naam} is in tree {currentBoom.id} at ({currentBoom.xCoordinaat},{currentBoom.yCoordinaat})");
+            StringBuilder sprongenLog = new StringBuilder();
+            int meestesprongen = ontsnapteApen.Max(a => a.bezochteBomen.Count);
+            for (int i = 0; i < meestesprongen; i++)
+            {
+                foreach (Aap aap in ontsnapteApen)
+                {
+                    if (i < aap.bezochteBomen.Count)
+                    {
+                        Boom currentBoom = aap.bezochteBomen[i];
+                        sprongenLog.Append($"{aap.naam} is in tree {currentBoom.id} at ({currentBoom.xCoordinaat},{currentBoom.yCoordinaat})\n");
+                    }
+                }
+            }
+            return sprongenLog.ToString();
         }
+
     }
 }

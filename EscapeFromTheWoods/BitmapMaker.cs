@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace EscapeFromTheWoods
 {
@@ -14,7 +15,7 @@ namespace EscapeFromTheWoods
         {
             this.bos = bos;
         }
-        public void maakBitmap(string path)
+        public void MaakBitmap(string path)
         {
             using (MemoryStream Vista = new MemoryStream())
             {
@@ -30,16 +31,16 @@ namespace EscapeFromTheWoods
             Pen pen = new Pen(Color.GreenYellow, 1);
             foreach (Boom boom in bos.bomen)
             {
-                g.DrawEllipse(pen, boom.xCoordinaat * 20, boom.yCoordinaat, 17, 17);
+                g.DrawEllipse(pen, boom.xCoordinaat * 20, boom.yCoordinaat * 20, 17, 17);
             }
             //path
             Random r = new Random();
-            Color kleurke = new Color();
+            Color kleurke;
             foreach (Aap aap in bos.log.ontsnapteApen)
             {
+                kleurke = Color.FromArgb(r.Next(1, 256), r.Next(1, 256), r.Next(1, 256));
                 for (int i = 0; i < aap.bezochteBomen.Count - 1; i++)
                 {
-                    kleurke = Color.FromArgb(r.Next(1, 256), r.Next(1, 256), r.Next(1, 256));
                     pen.Color = kleurke;
                     Boom currentBoom = aap.bezochteBomen[i];
                     Boom nextBoom = aap.bezochteBomen[i + 1];

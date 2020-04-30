@@ -12,10 +12,7 @@ namespace EscapeFromTheWoods
         {
             using (StreamWriter sw = new StreamWriter(Path.Combine(path, $"{bos.id}_log.txt")))
             {
-                foreach (String line in bos.log.sprongenLogs)
-                {
-                   await sw.WriteLineAsync(line);
-                }
+                    await sw.WriteLineAsync(bos.log.getSprongenLog());
             }
         }
     }
