@@ -38,8 +38,9 @@ namespace EscapeFromTheWoods
                         DataTable table = collection[i];
                         sqlBulk.BulkCopyTimeout = 0;
                         sqlBulk.DestinationTableName = table.TableName;
+                        Console.WriteLine($"write wood {i} to database - start");
                         await Task.Run(async () => { await sqlBulk.WriteToServerAsync(table); });
-                        Console.WriteLine($"{table.TableName} is in database toegevoegd");
+                        Console.WriteLine($"write wood {i} to database - end");
                     }
                 }
             }

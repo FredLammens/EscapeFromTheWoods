@@ -156,6 +156,7 @@ namespace EscapeFromTheWoods
         }
         private Tuple<double,Boom> ZoekDichtsteBoom(Aap aap)
         {
+            Console.WriteLine($"start calculating escape route for wood: {id}, monkey: {aap.naam}");
             Boom huidigeBoom = aap.bezochteBomen.Last();
             double dichtste = double.MaxValue;
             Boom dichtsteBoom = null;

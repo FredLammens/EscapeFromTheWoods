@@ -9,7 +9,7 @@ namespace EscapeFromTheWoods
         {
             Bos bos = new Bos(new List<int>() { 10, 10 }, 5, 90,5);
             bos.Start();
-            OutputFactory.Keuze(bos);
+            OutputFactory.Start(bos);
             //Console.Clear();
             //bos.log.PrintLog();
             //BitmapMaker bm = new BitmapMaker(bos);
