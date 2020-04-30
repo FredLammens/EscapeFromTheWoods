@@ -90,10 +90,10 @@ namespace EscapeFromTheWoods
                     Boom currentBoom = currentAap.bezochteBomen[seqnr];
                     monkeyRecords.Rows.Add(monkeyRecordID, currentAap.id, currentAap.naam, bosId, seqnr, currentBoom.id, currentBoom.xCoordinaat, currentBoom.yCoordinaat);
                     monkeyRecordID++;
+                    //Logs
+                    logs.Rows.Add(logID, bosId, currentAap.id, $"{currentAap.naam} is now in tree {currentBoom.id} at location ({currentBoom.xCoordinaat},{currentBoom.yCoordinaat})");
+                    logID++;
                 }
-                //Logs
-                logs.Rows.Add(logID, bosId, currentAap.id, bos.log.GeefMessage(currentAap));
-                logID++;
             }
             #endregion
             //create DataSet => kan gebruikt worden om xml mee te maken 

@@ -14,6 +14,8 @@ namespace EscapeFromTheWoods
             switch (output.ToLower().Trim())
             {
                 case "databank":
+                    Databank db = new Databank(@"Data Source=DESKTOP-OF28PIK\SQLEXPRESS;Initial Catalog=EscapeFromTheWoods;Integrated Security=True");
+                    db.InsertAll(bos);
                     break;
                 case "bitmap":
                     BitmapMaker bmm = new BitmapMaker(bos);

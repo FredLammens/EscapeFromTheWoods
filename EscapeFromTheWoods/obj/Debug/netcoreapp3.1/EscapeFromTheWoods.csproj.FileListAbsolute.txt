@@ -17,3 +17,10 @@ C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchro
 C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\obj\Debug\netcoreapp3.1\EscapeFromTheWoods.csproj.CopyComplete
 C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\Syroot.KnownFolders.dll
+C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Biebem\Google Drive\School\hbO5\Semester2\hbo5_Programmeren4\2.Asynchroon programmeren\EscapeFromTheWoods\EscapeFromTheWoods\obj\Debug\netcoreapp3.1\EscapeFromTheWoods.csproj.CoreCompileInputs.cache
